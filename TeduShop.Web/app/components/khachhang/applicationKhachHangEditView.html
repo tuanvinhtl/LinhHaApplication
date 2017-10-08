@@ -1,0 +1,55 @@
+﻿<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Blank page
+        <small>it all starts here</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Examples</a></li>
+        <li class="active">Blank page</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Horizontal Form</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal" novalidate name="frmEditApplicationKhachHang" role="form" ng-submit="UpdateApplicationKhachHangs()">
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Tên Khách Hàng</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-maxlength="256" ng-model="applicationKhachHangs.Name" name="name" placeholder="Nhập họ tên">
+                        <span ng-show="frmEditApplicationKhachHang.name.$invalid" class="text-danger">Phải nhập tên</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Địa Chỉ</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-maxlength="256" ng-model="applicationKhachHangs.Address" name="address" placeholder="Nhập địa chỉ">
+                        <span ng-show="frmEditApplicationKhachHang.address.$invalid" class="text-danger">Phải nhập địa chỉ của khách hàng</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Số Điện thoại</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-maxlength="256" ng-model="applicationKhachHangs.PhoneNumber" name="phone" placeholder="Nhập số điện thoại">
+                        <span ng-show="frmEditApplicationKhachHang.phone.$invalid" class="text-danger">Phải nhập số điện thoại của khách hàng</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <button type="submit" ui-sref="applicationKhachHang_list" class="btn btn-default">Hủy</button>
+                <button type="submit" ng-disabled="frmEditApplicationKhachHang.$invalid" class="btn btn-info pull-right">Lưu</button>
+            </div>
+            <!-- /.box-footer -->
+        </form>
+    </div>
+</section>
+<!-- /.content -->

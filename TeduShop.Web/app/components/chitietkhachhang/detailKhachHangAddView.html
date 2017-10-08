@@ -1,0 +1,66 @@
+﻿<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Thêm Mới
+        <small>thêm mới nhập dữ liệu vào kho dữ liệu</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+        <li><a href="#">Ví dụ</a></li>
+        <li class="active">Trang trống</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="box box-info">
+
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal" novalidate name="frmAddDetailKhachHang" role="form" ng-submit="addDetailKhachHangs()">
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">ID Khách</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-maxlength="256" disabled ng-model="detailkhachhangs.IdKhachHang" name="name" placeholder="Nhập tên">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Sử dụng thuốc</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" class="form-control" required ng-maxlength="256" ng-model="detailkhachhangs.SuDungThuoc" name="sudungthuoc" placeholder="Thuốc đã dùng"></textarea>
+                        <span ng-show="frmAddDetailKhachHang.sudungthuoc.$invalid" class="text-danger">Phải nhập loại thuốc</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Ngày chữa</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  ng-model="detailkhachhangs.NgayChuaBenh" name="chiphichua" placeholder="Ngày chữa">
+                        <span class="text-info">Lưu ý: trường này phải nhập định dạng là tháng/ngày/năm (vd: 1/20/2017)</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Chi phí chữa</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" required ng-maxlength="256" ng-model="detailkhachhangs.ChiPhiChuaBenh" name="chiphichua" placeholder="Chi phí khám chữa">
+                        <span ng-show="frmAddDetailKhachHang.chiphichua.$invalid" class="text-danger">Phải nhập số tiền đã chữa bệnh</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Đã trả trước</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" required ng-maxlength="256" ng-model="detailkhachhangs.TraTruoc" name="tratruoc" placeholder="Trả trước số nợ">
+                        <span ng-show="frmAddDetailKhachHang.tratruoc.$invalid" class="text-danger">Phải nhập số tiền khách đã trả trước</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <button type="submit" ui-sref="detailKhachHang_list({id:detailkhachhangs.IdKhachHang})" class="btn btn-default">Hủy</button>
+                <button type="submit" ng-disabled="frmAddDetailKhachHang.$invalid" class="btn btn-info pull-right">Lưu</button>
+            </div>
+            <!-- /.box-footer -->
+        </form>
+    </div>
+</section>
+<!-- /.content -->

@@ -1,0 +1,73 @@
+﻿<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Blank page
+        <small>it all starts here</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Examples</a></li>
+        <li class="active">Blank page</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Horizontal Form</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal" novalidate name="frmEditApplicationUser" role="form" ng-submit="UpdateApplicationUsers()">
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Tên</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-maxlength="256" ng-model="applicationUsers.FullName" name="fullName" placeholder="Nhập họ tên">
+                        <span ng-show="frmEditApplicationUser.fullName.$invalid" class="text-danger">Phải nhập tên</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Năm sinh</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-maxlength="256" ng-model="applicationUsers.BirthDay" name="birthDay" placeholder="Nhập ngày tháng năm sinh">
+                       
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-maxlength="256" ng-model="applicationUsers.Email" name="email" placeholder="Nhập địa chỉ Email">
+                        <span ng-show="frmEditApplicationUser.email.$invalid" class="text-danger">Phải nhập Email</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Tên đăng nhập</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required ng-maxlength="256" ng-model="applicationUsers.UserName" name="userName" placeholder="Nhập tên đăng nhập(UserName)">
+                        <span ng-show="frmEditApplicationUser.userName.$invalid" class="text-danger">Phải nhập tên tên đăng nhập</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Điện thoại</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" ng-maxlength="256" ng-model="applicationUsers.PhoneNumber" name="phone" placeholder="Nhập số điện thoại">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Chọn thư mục</label>
+                    <label ng-repeat="group in applicationGroups" class="col-sm-2 control-label">
+                        <input type="checkbox" checklist-model="applicationUsers.Groups" checklist-value="group"> {{group.Name}}
+                    </label>
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <button type="submit" ui-sref="applicationUser_list" class="btn btn-default">Hủy</button>
+                <button type="submit" ng-disabled="frmEditApplicationUser.$invalid" class="btn btn-info pull-right">Lưu</button>
+            </div>
+            <!-- /.box-footer -->
+        </form>
+    </div>
+</section>
+<!-- /.content -->

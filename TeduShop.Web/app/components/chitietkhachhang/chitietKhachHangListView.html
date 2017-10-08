@@ -1,0 +1,112 @@
+﻿<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Quản Lý Nợ Khách Hàng
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+        <li><a href="#">Trải nghiệm</a></li>
+        <li class="active">Trang trống</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <!-- Default box -->
+        <div class="box-body">
+            <!--Content here-->
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+            
+                        <!-- /.box-header -->
+
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
+                                <tr>
+                                    <th><input type="checkbox" name="all" ng-click="selectAll()" /></th>
+                                    <th>Họ Tên</th>
+                                    <th width="15%">Địa Chỉ</th>
+                                    <th>Ngày Chữa</th>
+                                    <th width="20%">Loại Thuốc</th>
+                                    <th>Chi Phí Chữa</th>
+                                    <th>Còn Nợ Lại</th>
+                                    <th width="15%">#</th>
+                                </tr>
+                                <tr ng-repeat="item in chitietKhachHangs">
+                                    <td><input type="checkbox" name="all" ng-model="item.checked" /></td>
+                                    <td><a  ui-sref="detailKhachHang_list({id:item.IdKhachHang})">{{item.Name}}</a></td>
+                                    <td>{{item.Address}}</td>
+                                    <td>{{item.NgayChuaBenh | date:'dd/MM/yyyy'}}</td>
+                                    <td>{{item.SuDungThuoc}}</td>
+                                    <td>{{item.ChiPhiChuaBenh |number:0 }}</td>
+                                    <td>{{item.CTNoLai  |number:0}}</td>
+                                    <td>
+                                        <button ui-sref="chitietKhachHang_edit({id:item.Id})" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                        <button class="btn btn-danger" ng-click="deleteChiTietKhachHang(item.Id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                    </td>
+                                </tr>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="8">Tổng bản ghi {{totalCount}}</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan="8"> <h3>Tổng tiền: {{ totalAmount |number:0 }}</h3></td>
+                                    </tr>
+                               
+                                </tfoot>
+                                
+                                
+                            </table>
+                            <div class="form-inline">
+                                <div class="form-group">
+                                    <input type="text" ng-model="keyWordName" class="form-control"  placeholder="Tìm theo tên">
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" ng-model="keyWordAddress">
+                                        <option value="">Danh mục gốc</option>
+                                        <option value="La Vân">La Vân</option>
+                                        <option value="Sa Huỳnh">Sa Huỳnh</option>
+                                        <option value="Cồn">Cồn</option>
+                                        <option value="Tân Diêm">Tân Diêm</option>
+                                        <option value="Tấn Lộc">Tấn Lộc</option>
+                                        <option value="Thạnh Đức">Thạnh Đức</option>
+                                        <option value="Không Xác Định">Không Xác Định</option>
+                                    </select>
+                                   
+                                </div>
+
+                                <div class="input-group">
+                                    <input type="text" class="form-control" ng-model="fromDate"  placeholder="Tháng/Ngày/Năm">
+                                </div>
+                                <div class="input-group">
+                                    <input type="text" ng-model="toDate" class="form-control"  placeholder="Tháng/Ngày/Năm">
+                                </div>
+                                
+                                <button type="submit" ng-click="search()" class="btn btn-primary"><i class="fa fa-search">Tìm kiếm</i></button>
+
+                            </div>
+                           
+                                
+                            </div>
+                        <!-- /.box-body -->
+                    </div>
+                    
+                    <div class="box-footer">
+                        <pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pageCount}}" total-count="{{totalCount}}" search-func="getChiTietKhachHangs(page)"></pager-directive>
+                        <button type="submit" class="btn btn-danger pull-right" id="btnDelete" disabled ng-click="deleteMutile()"><i class="fa fa-times-circle" aria-hidden="true"> Xóa nhiều</i></button>
+                        <button type="submit" class="btn btn-primary pull-right" ui-sref="chitietKhachHang_add"><i class="fa fa-plus-square" aria-hidden="true"> Thêm mới</i></button>
+                    </div>
+
+                    <!-- /.box -->
+                </div>
+                
+            </div>
+        </div>
+        <!-- /.box-body -->
+        
+        <!-- /.box-footer-->
+
+    <!-- /.box -->
+</section>
+<!-- /.content -->
