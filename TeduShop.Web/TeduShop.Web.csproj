@@ -27,6 +27,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -442,19 +443,6 @@
     <Content Include="Assets\admin\libs\angular-local-storage\dist\angular-local-storage.js" />
     <Content Include="Assets\admin\libs\angular-local-storage\dist\angular-local-storage.min.js" />
     <Content Include="Assets\admin\libs\angular-local-storage\index.js" />
-    <Content Include="Assets\admin\libs\angular-ui-router\release\angular-ui-router.js" />
-    <Content Include="Assets\admin\libs\angular-ui-router\release\angular-ui-router.min.js" />
-    <Content Include="Assets\admin\libs\angular-ui-router\src\common.js" />
-    <Content Include="Assets\admin\libs\angular-ui-router\src\resolve.js" />
-    <Content Include="Assets\admin\libs\angular-ui-router\src\state.js" />
-    <Content Include="Assets\admin\libs\angular-ui-router\src\stateDirectives.js" />
-    <Content Include="Assets\admin\libs\angular-ui-router\src\stateFilters.js" />
-    <Content Include="Assets\admin\libs\angular-ui-router\src\templateFactory.js" />
-    <Content Include="Assets\admin\libs\angular-ui-router\src\urlMatcherFactory.js" />
-    <Content Include="Assets\admin\libs\angular-ui-router\src\urlRouter.js" />
-    <Content Include="Assets\admin\libs\angular-ui-router\src\view.js" />
-    <Content Include="Assets\admin\libs\angular-ui-router\src\viewDirective.js" />
-    <Content Include="Assets\admin\libs\angular-ui-router\src\viewScroll.js" />
     <Content Include="Assets\admin\libs\angular\angular-csp.css" />
     <Content Include="Assets\admin\libs\angular\angular.js" />
     <Content Include="Assets\admin\libs\angular\angular.min.js" />
@@ -4737,7 +4725,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Assets\admin\libs\checklist-model\test\" />
-    <Folder Include="Reports\" />
     <Folder Include="UploadedFile\" />
     <Folder Include="Views\ShopingCard\" />
   </ItemGroup>
@@ -4757,12 +4744,6 @@
     <Content Include="Assets\admin\libs\angular\LICENSE.md" />
     <Content Include="Assets\admin\libs\angular\package.json" />
     <Content Include="Assets\admin\libs\angular\README.md" />
-    <Content Include="Assets\admin\libs\angular-ui-router\.bower.json" />
-    <Content Include="Assets\admin\libs\angular-ui-router\bower.json" />
-    <Content Include="Assets\admin\libs\angular-ui-router\CHANGELOG.md" />
-    <Content Include="Assets\admin\libs\angular-ui-router\CONTRIBUTING.md" />
-    <Content Include="Assets\admin\libs\angular-ui-router\LICENSE" />
-    <Content Include="Assets\admin\libs\angular-ui-router\README.md" />
     <Content Include="Assets\admin\libs\fastclick\.bower.json" />
     <Content Include="Assets\admin\libs\fastclick\bower.json" />
     <Content Include="Assets\admin\libs\fastclick\LICENSE" />
@@ -4891,11 +4872,6 @@
     <Content Include="Assets\admin\libs\bootbox\LICENSE.md" />
     <Content Include="Assets\admin\libs\bootbox\package.json" />
     <Content Include="Assets\admin\libs\bootbox\README.md" />
-    <Content Include="Assets\admin\libs\ngBootbox\.bower.json" />
-    <Content Include="Assets\admin\libs\ngBootbox\bower.json" />
-    <Content Include="Assets\admin\libs\ngBootbox\package.json" />
-    <Content Include="Assets\admin\libs\ngBootbox\README.md" />
-    <Content Include="Assets\admin\libs\ngBootbox\tsd.json" />
     <Content Include="Assets\admin\libs\ckeditor\.bower.json" />
     <Content Include="Assets\admin\libs\ckeditor\.github\ISSUE_TEMPLATE" />
     <Content Include="Assets\admin\libs\ckeditor\bower.json" />
@@ -5414,10 +5390,16 @@
     <Content Include="Assets\admin\libs\semantic-ui\tasks\config\admin\templates\package.json" />
     <Content Include="Assets\admin\libs\semantic-ui\tasks\config\admin\templates\README.md" />
     <Content Include="Assets\admin\libs\semantic-ui\tasks\README.md" />
+    <Content Include="Assets\admin\libs\ngBootbox\.bower.json" />
+    <Content Include="Assets\admin\libs\ngBootbox\bower.json" />
+    <Content Include="Assets\admin\libs\ngBootbox\package.json" />
+    <Content Include="Assets\admin\libs\ngBootbox\README.md" />
+    <Content Include="Assets\admin\libs\ngBootbox\tsd.json" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Admin\Index.cshtml" />
     <None Include="Properties\PublishProfiles\LinhApplication.pubxml" />
     <None Include="Properties\PublishProfiles\TeduShop.pubxml" />
+    <Content Include="Reports\TemplateForReport\ProductReport.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TeduShop.Common\TeduShop.Common.csproj">
@@ -5438,12 +5420,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
     <TypeScriptCompile Include="Assets\admin\libs\ngBootbox\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="Assets\admin\libs\ngBootbox\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Assets\admin\libs\ngBootbox\typings\tsd.d.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

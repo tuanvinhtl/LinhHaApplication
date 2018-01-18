@@ -17,13 +17,13 @@ using TeduShop.Web.Models;
 namespace TeduShop.Web.Api
 {
     [RoutePrefix("api/applicationGroup")]
-    [Authorize]
+
     public class ApplicationGroupController : ApiControllerBase
     {
         private IApplicationGroupService _applicationGroupService;
         private IApplicationRoleService _appRoleService;
         private ApplicationUserManager _appUsermanager;
-        public ApplicationGroupController(ApplicationUserManager appUsermanager,IApplicationRoleService appRoleService, IApplicationGroupService applicationGroupService, IErrorService errorService) : base(errorService)
+        public ApplicationGroupController(ApplicationUserManager appUsermanager, IApplicationRoleService appRoleService, IApplicationGroupService applicationGroupService, IErrorService errorService) : base(errorService)
         {
             this._appUsermanager = appUsermanager;
             this._appRoleService = appRoleService;
@@ -66,7 +66,7 @@ namespace TeduShop.Web.Api
                         var listRoleName = listRole.Select(x => x.Name).ToArray();
                         foreach (var roleName in listRoleName)
                         {
-                             _appUsermanager.AddToRoleAsync(user.Id, roleName);
+                            _appUsermanager.AddToRoleAsync(user.Id, roleName);
                         }
                     }
                     response = request.CreateResponse(HttpStatusCode.Created, mapperModel);
@@ -108,7 +108,7 @@ namespace TeduShop.Web.Api
 
         [HttpPut]
         [Route("update")]
-        public async Task< HttpResponseMessage> Update(HttpRequestMessage request, ApplicationGroupViewModel applicaionGroupViewModel)
+        public async Task<HttpResponseMessage> Update(HttpRequestMessage request, ApplicationGroupViewModel applicaionGroupViewModel)
         {
             bool statusUpdate = false;
             HttpResponseMessage response = null;

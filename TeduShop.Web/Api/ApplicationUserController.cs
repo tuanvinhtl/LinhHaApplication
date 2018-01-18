@@ -18,7 +18,7 @@ using TeduShop.Web.Models;
 namespace TeduShop.Web.Api
 {
     [RoutePrefix("api/applicationUser")]
-    [Authorize]
+
     public class ApplicationUserController : ApiControllerBase
     {
         private ApplicationUserManager _appLicationUserManager;

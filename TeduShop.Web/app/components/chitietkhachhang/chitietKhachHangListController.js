@@ -11,7 +11,7 @@
         $scope.keyWordAddress = '';
         $scope.fromDate = '';
         $scope.toDate = '';
-
+        $scope.exportExcel = exportExcel;
         $scope.totalAmount = 0;
         $scope.arrayTongSoNo = [];
 
@@ -25,6 +25,15 @@
         function search() {
             getChiTietKhachHangs();
             loadTotalAmount();
+        }
+
+        function exportExcel() {
+            apiService.get('api/chitietKhachHang/exportExcel', null, function (result) {
+                window.open("http://localhost:50202/" + result.data.Message)
+            }, function () {
+                console.log('cant export file');
+
+            });
         }
 
         function deleteMutile() {
@@ -92,7 +101,7 @@
                     keyWordName: $scope.keyWordName,
                     keyWordAddress: $scope.keyWordAddress,
                     fromDate: $scope.fromDate,
-                    toDate:$scope.toDate,
+                    toDate: $scope.toDate,
                     page: page,
                     pageSize: 5
                 }
@@ -148,6 +157,6 @@
 
         loadTotalAmount();
         getChiTietKhachHangs();
-        
+
     }
 })(angular.module('tedushop.chitietKhachHangs'));

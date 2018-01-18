@@ -14,7 +14,7 @@ using AutoMapper;
 namespace TeduShop.Web.Api
 {
     [RoutePrefix("api/khachHang")]
-    [Authorize]
+
     public class KhachHangController : ApiControllerBase
     {
         IKhachHangService _khachHangService;
@@ -36,7 +36,7 @@ namespace TeduShop.Web.Api
                 }
                 else
                 {
-                    bool result= CheckKhachHang(khachhang.Name);
+                    bool result = CheckKhachHang(khachhang.Name);
                     if (result)
                     {
                         KhachHang NewKh = new KhachHang();
@@ -50,7 +50,7 @@ namespace TeduShop.Web.Api
                     {
                         response = request.CreateResponse(HttpStatusCode.BadRequest, "Tên không được trùng");
                     }
-                   
+
                 }
 
                 return response;
@@ -119,13 +119,13 @@ namespace TeduShop.Web.Api
 
         [Route("getlistpaging")]
         [HttpGet]
-        public HttpResponseMessage GetListPaging(HttpRequestMessage request, string keyWord, int page, int pageSize )
+        public HttpResponseMessage GetListPaging(HttpRequestMessage request, string keyWord, int page, int pageSize)
         {
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
                 int totalRow = 0;
-                var model = _khachHangService.GetListPaging(page,pageSize,out totalRow, keyWord);
+                var model = _khachHangService.GetListPaging(page, pageSize, out totalRow, keyWord);
                 IEnumerable<KhachHangViewModel> modelVm = Mapper.Map<IEnumerable<KhachHang>, IEnumerable<KhachHangViewModel>>(model);
 
                 PaginationSet<KhachHangViewModel> pagedSet = new PaginationSet<KhachHangViewModel>()
@@ -150,7 +150,7 @@ namespace TeduShop.Web.Api
             {
                 HttpResponseMessage response = null;
                 var model = _khachHangService.GetDetail(id);
-                if (model==null)
+                if (model == null)
                 {
                     response = request.CreateResponse(HttpStatusCode.BadRequest, "no data");
                 }
@@ -159,7 +159,7 @@ namespace TeduShop.Web.Api
                     var mapper = Mapper.Map<KhachHang, KhachHangViewModel>(model);
                     response = request.CreateResponse(HttpStatusCode.OK, mapper);
                 }
-                
+
                 return response;
             });
         }
@@ -170,13 +170,13 @@ namespace TeduShop.Web.Api
             var khachhang = _khachHangService.GetAll();
             foreach (var item in khachhang)
             {
-                if (item.Name==tenkhachhang)
+                if (item.Name == tenkhachhang)
                 {
                     chcks = false;
                 }
             }
             return chcks;
         }
-        
+
     }
 }

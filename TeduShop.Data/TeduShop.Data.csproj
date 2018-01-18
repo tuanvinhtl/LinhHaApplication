@@ -64,85 +64,9 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201708051132503_FirstTime.cs" />
-    <Compile Include="Migrations\201708051132503_FirstTime.Designer.cs">
-      <DependentUpon>201708051132503_FirstTime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708051139011_addInfo.cs" />
-    <Compile Include="Migrations\201708051139011_addInfo.Designer.cs">
-      <DependentUpon>201708051139011_addInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708060315099_addnew.cs" />
-    <Compile Include="Migrations\201708060315099_addnew.Designer.cs">
-      <DependentUpon>201708060315099_addnew.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708060317444_add-entity.cs" />
-    <Compile Include="Migrations\201708060317444_add-entity.Designer.cs">
-      <DependentUpon>201708060317444_add-entity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708070908221_addfillCreatedDate.cs" />
-    <Compile Include="Migrations\201708070908221_addfillCreatedDate.Designer.cs">
-      <DependentUpon>201708070908221_addfillCreatedDate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708091349223_changeKey.cs" />
-    <Compile Include="Migrations\201708091349223_changeKey.Designer.cs">
-      <DependentUpon>201708091349223_changeKey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708091355041_addNewField.cs" />
-    <Compile Include="Migrations\201708091355041_addNewField.Designer.cs">
-      <DependentUpon>201708091355041_addNewField.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708091407496_allowNull.cs" />
-    <Compile Include="Migrations\201708091407496_allowNull.Designer.cs">
-      <DependentUpon>201708091407496_allowNull.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708100110415_addStore.cs" />
-    <Compile Include="Migrations\201708100110415_addStore.Designer.cs">
-      <DependentUpon>201708100110415_addStore.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708100136216_addStoreWhereByIdKhachhang.cs" />
-    <Compile Include="Migrations\201708100136216_addStoreWhereByIdKhachhang.Designer.cs">
-      <DependentUpon>201708100136216_addStoreWhereByIdKhachhang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708110137086_AddmoreStore.cs" />
-    <Compile Include="Migrations\201708110137086_AddmoreStore.Designer.cs">
-      <DependentUpon>201708110137086_AddmoreStore.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708110413474_AddstoreGetKHAll.cs" />
-    <Compile Include="Migrations\201708110413474_AddstoreGetKHAll.Designer.cs">
-      <DependentUpon>201708110413474_AddstoreGetKHAll.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708120343427_addStoreFindByDate.cs" />
-    <Compile Include="Migrations\201708120343427_addStoreFindByDate.Designer.cs">
-      <DependentUpon>201708120343427_addStoreFindByDate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708120435499_addStoreFindByDate2.cs" />
-    <Compile Include="Migrations\201708120435499_addStoreFindByDate2.Designer.cs">
-      <DependentUpon>201708120435499_addStoreFindByDate2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708170208242_editChuaBenh.cs" />
-    <Compile Include="Migrations\201708170208242_editChuaBenh.Designer.cs">
-      <DependentUpon>201708170208242_editChuaBenh.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708170212460_deleteStore.cs" />
-    <Compile Include="Migrations\201708170212460_deleteStore.Designer.cs">
-      <DependentUpon>201708170212460_deleteStore.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708170221315_EditStoreCT.cs" />
-    <Compile Include="Migrations\201708170221315_EditStoreCT.Designer.cs">
-      <DependentUpon>201708170221315_EditStoreCT.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708170855264_deleteTrangThaiNo.cs" />
-    <Compile Include="Migrations\201708170855264_deleteTrangThaiNo.Designer.cs">
-      <DependentUpon>201708170855264_deleteTrangThaiNo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708170905311_deleteStore1.cs" />
-    <Compile Include="Migrations\201708170905311_deleteStore1.Designer.cs">
-      <DependentUpon>201708170905311_deleteStore1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708170920398_addCTkhachhang.cs" />
-    <Compile Include="Migrations\201708170920398_addCTkhachhang.Designer.cs">
-      <DependentUpon>201708170920398_addCTkhachhang.cs</DependentUpon>
+    <Compile Include="Migrations\201801181408477_initial.cs" />
+    <Compile Include="Migrations\201801181408477_initial.Designer.cs">
+      <DependentUpon>201801181408477_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -173,65 +97,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708051132503_FirstTime.resx">
-      <DependentUpon>201708051132503_FirstTime.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708051139011_addInfo.resx">
-      <DependentUpon>201708051139011_addInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708060315099_addnew.resx">
-      <DependentUpon>201708060315099_addnew.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708060317444_add-entity.resx">
-      <DependentUpon>201708060317444_add-entity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708070908221_addfillCreatedDate.resx">
-      <DependentUpon>201708070908221_addfillCreatedDate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708091349223_changeKey.resx">
-      <DependentUpon>201708091349223_changeKey.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708091355041_addNewField.resx">
-      <DependentUpon>201708091355041_addNewField.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708091407496_allowNull.resx">
-      <DependentUpon>201708091407496_allowNull.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708100110415_addStore.resx">
-      <DependentUpon>201708100110415_addStore.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708100136216_addStoreWhereByIdKhachhang.resx">
-      <DependentUpon>201708100136216_addStoreWhereByIdKhachhang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708110137086_AddmoreStore.resx">
-      <DependentUpon>201708110137086_AddmoreStore.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708110413474_AddstoreGetKHAll.resx">
-      <DependentUpon>201708110413474_AddstoreGetKHAll.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708120343427_addStoreFindByDate.resx">
-      <DependentUpon>201708120343427_addStoreFindByDate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708120435499_addStoreFindByDate2.resx">
-      <DependentUpon>201708120435499_addStoreFindByDate2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708170208242_editChuaBenh.resx">
-      <DependentUpon>201708170208242_editChuaBenh.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708170212460_deleteStore.resx">
-      <DependentUpon>201708170212460_deleteStore.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708170221315_EditStoreCT.resx">
-      <DependentUpon>201708170221315_EditStoreCT.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708170855264_deleteTrangThaiNo.resx">
-      <DependentUpon>201708170855264_deleteTrangThaiNo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708170905311_deleteStore1.resx">
-      <DependentUpon>201708170905311_deleteStore1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708170920398_addCTkhachhang.resx">
-      <DependentUpon>201708170920398_addCTkhachhang.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801181408477_initial.resx">
+      <DependentUpon>201801181408477_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

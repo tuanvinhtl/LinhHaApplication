@@ -19,7 +19,13 @@ namespace TeduShop.Service
         CTKhachHangChuaBenh GetById(int id);
         IEnumerable<CTKhachHangModelCommon> GetAllTotalAmount(string fillterName, string filterAddress, string fromDate, string toDate);
         IEnumerable<CTKhachHangModelCommon> GetMultilById(int id);
-       
+        IEnumerable<CTKhachHangModelCommon> GetByThanhDuc();
+        IEnumerable<CTKhachHangModelCommon> GetBySaHuynh();
+        IEnumerable<CTKhachHangModelCommon> GetByCon();
+        IEnumerable<CTKhachHangModelCommon> GetTanDiem();
+        IEnumerable<CTKhachHangModelCommon> GetTanLoc();
+        IEnumerable<CTKhachHangModelCommon> GetLaVan();
+
     }
     public class ChiTietKhachHangService : IChiTietKhachHangService
     {
@@ -98,5 +104,42 @@ namespace TeduShop.Service
             return query;
 
         }
+
+        public IEnumerable<CTKhachHangModelCommon> GetByThanhDuc()
+        {
+            var query = _chitietKhachHang.GetAllChiTietKhachHang();
+            return query.Where(x => x.Address.Contains("Thạnh Đức"));
+        }
+        public IEnumerable<CTKhachHangModelCommon> GetLaVan()
+        {
+            var query = _chitietKhachHang.GetAllChiTietKhachHang();
+            return query.Where(x => x.Address.Contains("La Vân"));
+        }
+
+        public IEnumerable<CTKhachHangModelCommon> GetBySaHuynh()
+        {
+            var query = _chitietKhachHang.GetAllChiTietKhachHang();
+            return query.Where(x => x.Address.Contains("Sa Huỳnh"));
+        }
+
+        public IEnumerable<CTKhachHangModelCommon> GetByCon()
+        {
+            var query = _chitietKhachHang.GetAllChiTietKhachHang();
+            return query.Where(x => x.Address.Contains("Cồn"));
+        }
+
+        public IEnumerable<CTKhachHangModelCommon> GetTanDiem()
+        {
+            var query = _chitietKhachHang.GetAllChiTietKhachHang();
+            return query.Where(x => x.Address.Contains("Tân Diêm"));
+        }
+
+        public IEnumerable<CTKhachHangModelCommon> GetTanLoc()
+        {
+            var query = _chitietKhachHang.GetAllChiTietKhachHang();
+            return query.Where(x => x.Address.Contains("Tấn Lộc"));
+        }
+
+
     }
 }
