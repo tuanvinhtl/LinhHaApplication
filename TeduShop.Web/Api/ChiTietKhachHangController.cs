@@ -18,7 +18,7 @@ using TeduShop.Web.Models;
 namespace TeduShop.Web.Api
 {
     [RoutePrefix("api/chitietKhachHang")]
-
+    [Authorize]
     public class ChiTietKhachHangController : ApiControllerBase
     {
         IChiTietKhachHangService _chitietKhachHangService;

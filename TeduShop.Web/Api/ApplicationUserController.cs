@@ -18,13 +18,13 @@ using TeduShop.Web.Models;
 namespace TeduShop.Web.Api
 {
     [RoutePrefix("api/applicationUser")]
-
+    [Authorize]
     public class ApplicationUserController : ApiControllerBase
     {
         private ApplicationUserManager _appLicationUserManager;
         private IApplicationGroupService _applicationGroupService;
         private IApplicationRoleService _applicationRoleService;
-        public ApplicationUserController(IApplicationRoleService applicationRoleService,IApplicationGroupService applicationGroupService, IErrorService errorService, ApplicationUserManager applicationUserManager) : base(errorService)
+        public ApplicationUserController(IApplicationRoleService applicationRoleService, IApplicationGroupService applicationGroupService, IErrorService errorService, ApplicationUserManager applicationUserManager) : base(errorService)
         {
             this._applicationRoleService = applicationRoleService;
             this._applicationGroupService = applicationGroupService;
@@ -85,8 +85,8 @@ namespace TeduShop.Web.Api
                             var listRole = _applicationRoleService.GetListRoleByGroupId(item.ID);
                             foreach (var role in listRole)
                             {
-                               await _appLicationUserManager.RemoveFromRoleAsync(newAppUser.Id, role.Name);
-                               await _appLicationUserManager.AddToRoleAsync(newAppUser.Id, role.Name);
+                                await _appLicationUserManager.RemoveFromRoleAsync(newAppUser.Id, role.Name);
+                                await _appLicationUserManager.AddToRoleAsync(newAppUser.Id, role.Name);
                             }
                         }
                         _applicationGroupService.AddUserToGroups(listAppUserGroup, newAppUser.Id);

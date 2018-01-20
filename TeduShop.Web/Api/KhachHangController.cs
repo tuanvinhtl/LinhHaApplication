@@ -14,7 +14,7 @@ using AutoMapper;
 namespace TeduShop.Web.Api
 {
     [RoutePrefix("api/khachHang")]
-
+    [Authorize]
     public class KhachHangController : ApiControllerBase
     {
         IKhachHangService _khachHangService;

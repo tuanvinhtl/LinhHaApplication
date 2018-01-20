@@ -12,6 +12,7 @@ using TeduShop.Web.App_Start;
 namespace TeduShop.Web.Api
 {
     [RoutePrefix("api/account")]
+    [Authorize]
     public class AccountController : ApiController
     {
         private ApplicationSignInManager _signInManager;
@@ -51,11 +52,11 @@ namespace TeduShop.Web.Api
         [Route("login")]
         [HttpPost]
         [AllowAnonymous]
-        public async Task<HttpResponseMessage> Login(HttpRequestMessage request, string userName,string password,bool RememberMe)
+        public async Task<HttpResponseMessage> Login(HttpRequestMessage request, string userName, string password, bool RememberMe)
         {
             if (!ModelState.IsValid)
             {
-                return request.CreateResponse(HttpStatusCode.BadRequest,ModelState);
+                return request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
             }
 
             // This doesn't count login failures towards account lockout
