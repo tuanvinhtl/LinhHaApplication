@@ -5400,6 +5400,7 @@
     <None Include="Properties\PublishProfiles\LinhApplication.pubxml" />
     <None Include="Properties\PublishProfiles\TeduShop.pubxml" />
     <Content Include="Reports\TemplateForReport\ProductReport.xlsx" />
+    <Content Include="Reports\TemplateForReport\ReportLinhHaDetail.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TeduShop.Common\TeduShop.Common.csproj">

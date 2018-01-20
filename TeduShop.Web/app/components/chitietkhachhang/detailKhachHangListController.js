@@ -13,6 +13,18 @@
         $scope.totalAmount = 0;
         $scope.deleteDetailKhachHang = deleteDetailKhachHang;
         $scope.deleteKhachHang = deleteKhachHang;
+        $scope.exportExcelById = exportExcelById;
+
+        function exportExcelById() {
+            var id = $stateParams.id
+            apiService.get('api/chitietKhachHang/exportExcelById/' + id, null, function (result) {
+                window.open("http://localhost:50202/" + result.data.Message)
+            }, function () {
+                console.log('cant export file');
+
+            });
+        }
+
 
         function deleteKhachHang(id) {
             var config = {
@@ -28,7 +40,7 @@
                     notificationService.displayWarning('Xóa không thành công');
                 })
             })
-            
+
         }
 
         function loadDetailKhachHang() {
@@ -71,7 +83,7 @@
                     notificationService.displayWarning('Xóa không thành công');
                 })
             })
-            
+
         }
 
         loadDetailKhachHang();

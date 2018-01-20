@@ -15,6 +15,8 @@
         $scope.totalAmount = 0;
         $scope.arrayTongSoNo = [];
 
+        $scope.exportExcelById = exportExcelById;
+
         $scope.search = search;
         $scope.selected;
         $scope.deleteChiTietKhachHang = deleteChiTietKhachHang;
@@ -35,6 +37,19 @@
 
             });
         }
+
+
+        function exportExcelById(id) {
+
+            apiService.get('api/chitietKhachHang/exportExcelById/' + id, null, function (result) {
+                window.open("http://localhost:50202/" + result.data.Message)
+            }, function () {
+                console.log('cant export file');
+
+            });
+        }
+
+
 
         function deleteMutile() {
             var listId = [];

@@ -80,6 +80,16 @@ namespace TeduShop.Web.Api
         }
 
 
+        [Route("exportExcelById/{id:int}")]
+        [HttpGet]
+        public HttpResponseMessage ExportExcelById(HttpRequestMessage request, int id)
+        {
+            var folderReport = "/Reports";
+            string document = OutExcelByIdKhachHang(id);
+            return request.CreateErrorResponse(HttpStatusCode.OK, folderReport + "/" + document);
+        }
+
+
         [Route("CreateAny")]
         [HttpPost]
         public HttpResponseMessage Create(HttpRequestMessage request, ModelCommon ctkhachhang)
@@ -233,7 +243,7 @@ namespace TeduShop.Web.Api
             });
         }
 
-        private string OutExcel(int productId)
+        private string OutExcelByIdKhachHang(int id)
         {
             var folderReport = "/Reports";
             string filePath = HttpContext.Current.Server.MapPath(folderReport);
@@ -242,8 +252,8 @@ namespace TeduShop.Web.Api
                 Directory.CreateDirectory(filePath);
             }
             // template File
-            string templateDocument = HttpContext.Current.Server.MapPath("~/Reports/TemplateForReport/ProductReport.xlsx");
-            string documentName = string.Format("Product-{0}-{1}.xlsx", productId, DateTime.Now.ToString("ddmmyyyy"));
+            string templateDocument = HttpContext.Current.Server.MapPath("~/Reports/TemplateForReport/ReportLinhHaDetail.xlsx");
+            string documentName = string.Format("BaoCaoLinhHa-{0}-{1}.xlsx", id, DateTime.Now.ToString("ddmmyyyyss"));
             string fullPath = Path.Combine(filePath, documentName);
             //result Output
             MemoryStream output = new MemoryStream();
@@ -251,14 +261,35 @@ namespace TeduShop.Web.Api
             //read template
             FileStream templateDocumentStream = File.OpenRead(templateDocument);
             ExcelPackage package = new ExcelPackage(templateDocumentStream);
-            ExcelWorksheet sheet = package.Workbook.Worksheets["ProductReportId"];
-            //var product = _chitietKhachHangService.GetById(productId);
-            //sheet.Cells[6, 1].Value = productId;
-            //sheet.Cells[6, 2].Value = product.Name;
-            //sheet.Cells[6, 3].Value = product.Alias;
-            //sheet.Cells[6, 4].Value = product.Price;
-            //sheet.Cells[6, 5].Value = product.CategoryID;
-            //sheet.Cells[6, 6].Value = product.Status;
+            ExcelWorksheet sheet = package.Workbook.Worksheets["Sheet1"];
+            var kh = _khachHangService.GetDetail(id);
+            sheet.Cells[7, 2, 7, 3].Value = kh.Name;
+            sheet.Cells[8, 2].Value = kh.Address;
+            sheet.Cells[9, 2].Value = kh.Id;
+            sheet.Cells[10, 2].Value = kh.PhoneNumber;
+            sheet.Cells[5, 10].Value = DateTime.Now.ToString("dd/MM/yyyy");
+
+
+
+
+            var khachhang = _chitietKhachHangService.GetMultilById(id);
+
+            int i = 0;
+            decimal totalCountMoney = 0;
+            foreach (var item in khachhang)
+            {
+
+                totalCountMoney += item.CTNoLai;
+                sheet.Cells[8 + i, 6].Value = i;
+                sheet.Cells[8 + i, 7].Value = item.NgayChuaBenh.ToString("dd/MM/yyyy");
+                sheet.Cells[8 + i, 8].Value = item.ChiPhiChuaBenh;
+                sheet.Cells[8 + i, 9].Value = item.CTNoLai;
+                sheet.Cells[8 + i, 10].Value = "Quá dài";
+                i++;
+            }
+            sheet.Cells[11, 2, 14, 3].Value = totalCountMoney;
+
+
             package.SaveAs(new FileInfo(fullPath));
             return documentName;
         }
@@ -289,6 +320,9 @@ namespace TeduShop.Web.Api
             var tandiem = _chitietKhachHangService.GetTanDiem();
             var tanloc = _chitietKhachHangService.GetTanLoc();
             var lavan = _chitietKhachHangService.GetLaVan();
+            var khongxd = _chitietKhachHangService.GetKhongXacDinh();
+
+
 
             decimal lavantl = 0;
             foreach (var item in lavan)
@@ -327,12 +361,19 @@ namespace TeduShop.Web.Api
                 contl += item.CTNoLai;
             }
 
+            decimal khongXd = 0;
+            foreach (var item in khongxd)
+            {
+                khongXd += item.CTNoLai;
+            }
+
             sheet.Cells[3, 6].Value = sahuynhtl;
             sheet.Cells[4, 6].Value = thanhductl;
             sheet.Cells[5, 6].Value = tandiemtl;
             sheet.Cells[6, 6].Value = tanloctl;
             sheet.Cells[7, 6].Value = contl;
             sheet.Cells[8, 6].Value = lavantl;
+            sheet.Cells[9, 6].Value = khongXd;
 
 
 

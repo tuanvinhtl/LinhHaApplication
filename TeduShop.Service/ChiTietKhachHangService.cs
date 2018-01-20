@@ -25,6 +25,7 @@ namespace TeduShop.Service
         IEnumerable<CTKhachHangModelCommon> GetTanDiem();
         IEnumerable<CTKhachHangModelCommon> GetTanLoc();
         IEnumerable<CTKhachHangModelCommon> GetLaVan();
+        IEnumerable<CTKhachHangModelCommon> GetKhongXacDinh();
 
     }
     public class ChiTietKhachHangService : IChiTietKhachHangService
@@ -114,6 +115,11 @@ namespace TeduShop.Service
         {
             var query = _chitietKhachHang.GetAllChiTietKhachHang();
             return query.Where(x => x.Address.Contains("La Vân"));
+        }
+        public IEnumerable<CTKhachHangModelCommon> GetKhongXacDinh()
+        {
+            var query = _chitietKhachHang.GetAllChiTietKhachHang();
+            return query.Where(x => x.Address.Contains("Không Xác Định"));
         }
 
         public IEnumerable<CTKhachHangModelCommon> GetBySaHuynh()
